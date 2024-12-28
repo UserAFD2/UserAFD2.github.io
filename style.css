@@ -76,8 +76,7 @@ body, html {
 }
 
 .image {
-    width: 100%;
-    max-width: 300px;
+    MAX-WIDTH: 1000PX;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease;
@@ -89,6 +88,9 @@ body, html {
 
 /* Info Section */
 .info-section {
+    position: relative;
+    right: 50%;
+    width: 1500px;
     padding: 50px;
     background-color: rgba(0, 0, 0, 0.6);
     margin-top: 40px;
