@@ -1,3 +1,30 @@
+document.addEventListener('DOMContentLoaded', () => {
+    const sections = document.querySelectorAll('.section');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                const link = document.querySelector(
+                    `.nav-link[data-section="${entry.target.id}"]`
+                );
+
+                if (entry.isIntersecting) {
+                    navLinks.forEach((nav) => nav.classList.remove('active'));
+                    link.classList.add('active');
+                }
+            });
+        },
+        {
+            root: null,
+            threshold: 0.6, // Section is "active" when 60% visible
+        }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+});
+
+
 particlesJS("particles-js", {
     "particles": {
         "number": {

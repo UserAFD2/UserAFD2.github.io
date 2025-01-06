@@ -2,7 +2,6 @@
 body, html {
     margin: 0;
     padding: 0;
-    height: 100%;
     background-color: #1e1e2f;
     font-family: 'Arial', sans-serif;
     color: #fff;
@@ -108,4 +107,50 @@ body, html {
     font-size: 1.1rem;
     color: #d1d1d1;
     line-height: 1.5;
+}
+
+.side-nav {
+    position: fixed;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: gray;
+    font-size: 18px;
+    padding: 5px 10px;
+    border-left: 3px solid transparent;
+    transition: color 0.3s, border-left-color 0.3s;
+}
+
+.nav-link.active {
+    color: black;
+    border-left-color: #ff9800;
+}
+
+.content2 {
+    margin-left: 100px;
+    padding: 20px;
+}
+
+.section {
+    min-height: 100vh;
+    padding: 50px;
+    margin: 20px 0;
+    border: 1px solid #ccc;
+    background-color: #f4f4f4;
+}
+html {
+    scroll-behavior: smooth;
+}
+
+html, body {
+    overflow: auto;
+
+
 }
