@@ -1,3 +1,54 @@
+const repoOwner = "UserAFD2";
+const repoName = "UserAFD2.github.io";
+
+async function fetchRepoData() {
+    try {
+        // Fetch repository details
+        const repoResponse = await fetch(
+            `https://api.github.com/repos/${repoOwner}/${repoName}`
+        );
+        const repo = await repoResponse.json();
+
+        // Display repository information
+        const container = document.getElementById("repo-files");
+        container.innerHTML = `
+            <h2>${repo.name}</h2>
+            <!-- <p>${repo.description}</p> -->
+            <!-- <a href="${repo.html_url}" target="_blank">View on GitHub</a> -->
+        `;
+
+        // Fetch repository contents (files)
+        const filesResponse = await fetch(
+            `https://api.github.com/repos/${repoOwner}/${repoName}/contents`
+        );
+        const files = await filesResponse.json();
+
+        // Display repository files
+        const filesContainer = document.getElementById("repo-files");
+        // filesContainer.innerHTML += "<h3>Files:</h3>"; // Uncomment if you want to display a heading for files
+        files.forEach((file) => {
+            // Check if file is a directory or a file
+            const icon = file.type === "dir"
+                ? '<i class="fas fa-folder"></i>'  // Folder icon
+                : '<i class="fas fa-file-alt"></i>'; // File icon
+
+            filesContainer.innerHTML += `
+            <p>
+                ${icon} 
+                <a href="${file.html_url}" target="_blank">${file.name}</a> 
+                (${file.type})
+            </p>
+        `;
+        });
+
+    } catch (error) {
+        console.error('Error fetching repository data:', error);
+    }
+}
+
+// Call the merged function
+fetchRepoData();
+
 document.addEventListener('DOMContentLoaded', () => {
     const sections = document.querySelectorAll('.section');
     const navLinks = document.querySelectorAll('.nav-link');
