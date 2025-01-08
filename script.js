@@ -1,4 +1,18 @@
 
+const video = document.getElementById("hover-video");
+
+// Play the video when the mouse enters the element
+video.addEventListener("mouseenter", () => {
+    video.currentTime = 0; // Reset the video to the start
+    video.play();
+});
+
+// Pause and reset the video when the mouse leaves the element
+video.addEventListener("mouseleave", () => {
+    video.pause();
+    video.currentTime = 0; // Reset the video to the start
+});
+
 {
 
     const person = new Object();
@@ -61,26 +75,6 @@
     document.getElementById('search').addEventListener('input', updateText);
 
     displayAllPeople();
-
-}
-
-{
-    const toggleButton = document.getElementById('toggleButton');
-    const textInput = document.getElementById('textInput');
-    const output = document.getElementById('output');
-    toggleButton.addEventListener('click', () => {
-        if (textInput.type === 'text') {
-            textInput.type = 'password';
-            toggleButton.innerText = 'Show as Normal Text'
-        } else {
-            textInput.type = 'text';
-            toggleButton.innerText = 'Show as Password';
-        }
-    });
-
-    textInput.addEventListener('input', () => {
-        output.innerText = `Current input: ${textInput.value}`;
-    });
 
 }
 

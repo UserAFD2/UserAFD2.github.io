@@ -178,12 +178,16 @@ a:hover {
     gap: 20px;
     justify-content: center;
 }
+@keyframes box_shadow {
+    from {box-shadow: 0 4px 8px 0 rgba(180, 200, 255, 0.1), 0 6px 20px 0 rgba(180, 200, 255, 0.09);}
+    to {box-shadow: 0 4px 8px 0 rgba(180, 200, 255, 0.3), 0 6px 20px 0 rgba(180, 200, 255, 0.29);}
+}
 
 .video-thumbnail {
     width: 385px;
     height: 225px;
     border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px 0 rgba(180, 200, 255, 0.1), 0 6px 20px 0 rgba(180, 200, 255, 0.09);
     text-align: center;
     overflow: hidden;
     cursor: pointer;
@@ -192,6 +196,9 @@ a:hover {
 
 .video-thumbnail:hover {
     transform: scale(1.05);
+    animation-name: box_shadow;
+    animation-duration: 0.3s;
+    box-shadow: 0 4px 8px 0 rgba(180, 200, 255, 0.3), 0 6px 20px 0 rgba(180, 200, 255, 0.29);
 }
 
 video {
