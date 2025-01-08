@@ -50,7 +50,28 @@ body, html {
 }
 
 
+/* Search bar container */
+.search-container {
+    position: relative;
+    width: 300px;
+}
 
+/* Search input */
+.search-bar {
+    width: 100%;
+    padding: 10px 20px;
+    border: 2px solid #ccc;
+    border-radius: 25px;
+    font-size: 16px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+/* Focus effect */
+.search-bar:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
 
 
 #repo-info, #repo-files {

@@ -1,3 +1,97 @@
+
+{
+
+    const person = new Object();
+
+
+    function Person(first, last, age, eye) {
+        this.firstName = first;
+        this.lastName = last;
+        this.age = age;
+        this.eyeColor = eye;
+    }
+
+    const myFather = new Person("John", "Doe", 50, "blue");
+    const myMother = new Person("Sally", "Rally", 48, "green");
+
+    const people = [myFather, myMother];
+
+    function updateText() {
+        let search = document.getElementById('search').value.trim(); // Get the input value
+        let found = false;
+        let text = document.getElementById("demo");
+        for (let person of people) {
+            // Check if the search matches either the first or last name
+            if (person.firstName.toLowerCase() === search.toLowerCase() || person.lastName.toLowerCase() === search.toLowerCase()) {
+                document.getElementById("demo").innerHTML = `
+                Name: ${person.firstName} ${person.lastName}<br>
+                
+                `;
+                text.addEventListener('mouseover', () => {
+                    document.getElementById("demo").innerHTML = `
+                        Name: ${person.firstName} ${person.lastName}<br>
+                        Age: ${person.age}<br>
+                        Eye Color: ${person.eyeColor}`;
+                });
+
+                text.addEventListener('mouseleave', () => {
+                    document.getElementById("demo").innerHTML = `
+                        Name: ${person.firstName} ${person.lastName}<br>`;
+                });
+                found = true;
+                break;
+            }
+
+        }
+
+        if (!found) {
+            displayAllPeople();
+        }
+    }
+
+    function displayAllPeople() {
+        let t = '';
+
+        for (let person of people) {
+            t += `Name: ${person.firstName} ${person.lastName}<br><br>`;
+        }
+        document.getElementById("demo").innerHTML = t;
+    }
+    // Call updateText on every keystroke
+    document.getElementById('search').addEventListener('input', updateText);
+
+    displayAllPeople();
+
+}
+
+{
+    const toggleButton = document.getElementById('toggleButton');
+    const textInput = document.getElementById('textInput');
+    const output = document.getElementById('output');
+    toggleButton.addEventListener('click', () => {
+        if (textInput.type === 'text') {
+            textInput.type = 'password';
+            toggleButton.innerText = 'Show as Normal Text'
+        } else {
+            textInput.type = 'text';
+            toggleButton.innerText = 'Show as Password';
+        }
+    });
+
+    textInput.addEventListener('input', () => {
+        output.innerText = `Current input: ${textInput.value}`;
+    });
+
+}
+
+function updateDate() {
+    document.getElementById("date").innerHTML = new Date();
+    setInterval(updateDate, 1000);
+}
+
+updateDate();
+
+
 const repoOwner = "UserAFD2";
 const repoName = "UserAFD2.github.io";
 
