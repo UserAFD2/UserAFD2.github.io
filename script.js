@@ -1,4 +1,23 @@
 
+
+const sidebar = document.getElementById('sidebar');
+const toggle = document.getElementById('toggle');
+const circle = document.getElementById('circle');
+const toggle_circle = document.getElementById('toggle_circle');
+
+toggle.addEventListener('click', () => {
+    sidebar.classList.toggle('expanded');
+});
+
+circle.addEventListener('mouseover', () => {
+    circle.classList.toggle('expanded');
+});
+
+circle.addEventListener('mouseout', () => {
+    circle.classList.toggle('expanded');
+});
+
+
 const video = document.getElementById("hover-video");
 
 // Play the video when the mouse enters the element
